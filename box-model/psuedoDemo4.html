@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div {
+            background-color: blue;
+            color: white;
+        }
+
+        div>p {
+            padding: 20px;
+        }
+
+        div+p {
+            margin: 40px;
+            font-size: 40px;
+        }
+
+        div>span {
+            margin: 40px;
+        } */
+
+        h1+p {
+            color: red;
+        }
+
+        h1+p::after {
+            content: "_________________";
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Heading</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+    </div>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, esse sed libero quo maxime odit sapiente
+        eius, vitae quibusdam aperiam velit distinctio voluptatum voluptates perspiciatis numquam sit praesentium
+        doloribus asperiores.</p>
+</body>
+
+</html>

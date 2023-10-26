@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            color: blue;
+            margin: 20px;
+        }
+
+        form:hover {
+            border: 2px solid rgb(70, 118, 166);
+        }
+
+        input {
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        input .danger {
+            border-bottom: 100px solid red;
+        }
+
+        /* input:focus-visible {
+            outline: none;
+            border-bottom: 1px solid yellowgreen;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- take username, email, password and submit button -->
+    <form>
+        <input type="text" name="username" placeholder="Enter Username" class="danger">
+        <br>
+        <input type="text" name="email" placeholder="Enter Email">
+        <br>
+        <input type="password" name="password" placeholder="Enter Password">
+        <br>
+        <button>Submit</button>
+        <!-- <input type="submit" name="submit"> -->
+    </form>
+</body>
+
+</html>

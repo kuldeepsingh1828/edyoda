@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Block, inline and inline-block</title>
+    <style>
+        span {
+            display: block;
+        }
+
+        span::before {
+            content: "I'am a SPAN BEFORE>>>>>";
+        }
+
+        span::after {
+            content: "This is Content";
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error earum nulla maxime reiciendis odio, alias
+        sapiente quibusdam architecto facere aperiam nam pariatur quas magnam, voluptate eum illo? Inventore, magnam ut.
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil illum ut voluptatem dicta dolores pariatur eum!
+        Maxime repudiandae, voluptas quibusdam eius perspiciatis totam quod pariatur similique. Officia architecto
+        exercitationem corrupti!
+    </p>
+    <span>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut porro impedit obcaecati. Sed assum
+        distinctio impedit minus harum? Similique minima illum ab eveniet quos quibusdam, magnam aut vel id?
+    </span>
+    <img src="https://fastly.picsum.photos/id/575/200/300.jpg?hmac=sopd2rAqqxeAtI5YKmESfglb3av7FRnaTdo3woj1uEM" />
+    <span class="inline-span">About the image</span>
+</body>
+
+</html>
