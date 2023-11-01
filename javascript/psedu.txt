@@ -1,0 +1,17 @@
+
+all employees
+- Controller Employee
+-List<Employee> getAllEmployee()
+-- Manager
+-- Dao
+--Hibernate
+--AllEmployee in a List 
+
+
+
+
+
+
+
+
+particular employee with ID
