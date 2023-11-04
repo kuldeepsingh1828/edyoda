@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printing Dynamic Table</title>
+</head>
+
+<body>
+    <table id="dynamic">
+
+    </table>
+</body>
+<script>
+    var person = { name: 'Person 1', age: 22, phone: '7583213119', 'something': 'adsfvasdqe' }
+
+    //get All keys of person like name, age, phone
+    var keyArr = Object.keys(person);
+    var valueArr = Object.values(person);
+    //<tr></tr>
+    var row = document.createElement('tr');
+    for (var i = 0; i < keyArr.length; i++) {
+        //<th></th>
+        var element = document.createElement('th');
+        //<th>name</th>
+        element.innerText = keyArr[i];
+        /*
+        <tr>
+            <th>name</th>
+            </tr>
+            */
+        row.appendChild(element);
+        console.log(element)
+    }
+    var row2 = document.createElement('tr');
+    for (var i = 0; i < valueArr.length; i++) {
+        var element = document.createElement('td');
+        element.innerText = valueArr[i];
+        row2.appendChild(element);
+        console.log(element)
+    }
+    var table = document.getElementById('dynamic');
+    table.appendChild(row);
+    table.appendChild(row2);
+</script>
+
+</html>
