@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+
+<body>
+    <input type="radio" name="1" id="" value="1">
+    <input type="radio" name="1" id="" value="11">
+    <input type="radio" name="1" id="" value="12">
+    <input type="radio" name="1" id="" value="13">
+    <input type="radio" name="1" id="" value="14">
+    <input type="radio" name="2" id="" value="2">
+    <input type="radio" name="2" id="" value="21">
+    <input type="radio" name="2" id="" value="22">
+    <input type="radio" name="2" id="" value="23">
+    <input type="radio" name="2" id="" value="24">
+    <input type="radio" name="3" id="" value="3">
+    <input type="radio" name="3" id="" value="31">
+    <input type="radio" name="3" id="" value="32">
+    <input type="radio" name="3" id="" value="33">
+    <input type="radio" name="3" id="" value="34">
+    <input type="radio" name="4" id="" value="4">
+    <input type="radio" name="4" id="" value="41">
+    <input type="radio" name="4" id="" value="42">
+    <input type="radio" name="4" id="" value="43">
+    <input type="radio" name="4" id="" value="44">
+    <input type="radio" name="5" id="" value="5">
+    <input type="radio" name="5" id="" value="51">
+    <input type="radio" name="5" id="" value="52">
+    <input type="radio" name="5" id="" value="53">
+    <input type="radio" name="5" id="" value="54">
+    <input type="radio" name="6" id="" value="6">
+    <input type="radio" name="6" id="" value="61">
+    <input type="radio" name="6" id="" value="62">
+    <input type="radio" name="6" id="" value="63">
+    <input type="radio" name="6" id="" value="64">
+</body>
+
+</html>
+<script>
+    let data = {};
+    function valueChange(e) {
+        let { value, name } = e.target;
+        data[name] = value;
+        console.log(data, Object.values(data).length);
+    }
+    let elements = document.querySelectorAll('input');
+    let elementsArr = Array.from(elements);
+    elementsArr.forEach((el) => {
+        el.addEventListener('change', valueChange);
+    })
+</script>
