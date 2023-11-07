@@ -32,3 +32,26 @@ update = +2
 for(i = 2; i<=100; i+=2){
     console.log(i);
 }
+
+
+
+//PRACTICE QUESTIONS
+Find the length of an array.
+
+Check if a specific element exists in an array.
+
+Add an element to the end of an array.
+
+Remove the last element from an array.
+
+Find the index of a specific element in an array.
+
+Create a new array from a subset of an existing array.
+
+Check if all elements in an array meet a specific condition.
+
+Calculate the sum of all elements in an array.
+
+Remove duplicates from an array.
+
+Sort an array in ascending order.
