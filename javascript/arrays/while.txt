@@ -1,0 +1,35 @@
+initial expression :   var i = 0;
+final expression :      i < numbers.length;
+update expression :  i++;
+
+for
+
+for (var i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+}
+
+while
+
+/**
+ * var i = 0;
+ * 
+ * while(i < numbers.length){
+ * 
+ *       sum += numbers[i];
+ *      i++;
+ * }
+ */
+
+do while
+/**
+ * var i = 0;
+ * do {
+ *       sum += numbers[i];
+ *      i++;
+ * } while(i < numbers.length);
+ * 
+ * 
+ */
+
+break
+continue
