@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="generateH1Tag()">click me to generate h1 tag</button>
+</body>
+
+</html>
+<script>
+    let i = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    function generateH1Tag() {
+        const h1 = document.createElement('h1');
+        h1.innerText = `New H1 Tag is inside body tag - ${i}`;
+        document.body.appendChild(h1);
+    }
+</script>

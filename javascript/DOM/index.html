@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>click me to generate h1 tag</button>
+    <h1>H1 Tag is inside body tag</h1>
+</body>
+
+</html>
+<!-- h1 tag -->
+<!-- content in h1 tag -->
+<!-- body to append h1 tag -->
+<script>
+    setTimeout(() => {
+        const h1 = document.createElement('h1');
+        h1.innerText = 'New H1 Tag is inside body tag';
+        document.body.appendChild(h1);
+    }, 5000);
+</script>
