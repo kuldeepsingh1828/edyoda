@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">div 1</div>
+    <div id="div2">div 2</div>
+    <div id="div3">div 3</div>
+</body>
+<script>
+    function generateH1Tag(id) {
+        const h1 = document.createElement('h1');
+        h1.innerText = `New H1 Tag is inside body tag`;
+        // document.body.appendChild(h1);
+        //append the h1 tag to a particular div
+        document.getElementById(id)
+
+    }
+</script>
+
+</html>
