@@ -51,14 +51,17 @@
     table.appendChild(thead);
 
     users.forEach(user => {
+        
+        let { name, age, mobile } = user; //destructing
+
         let tr = document.createElement("tr");
         let td1 = document.createElement("td");
         let td2 = document.createElement("td");
         let td3 = document.createElement("td");
 
-        td1.innerText = user.name;
-        td2.innerText = user.age;
-        td3.innerText = user.mobile;
+        td1.innerText = name;
+        td2.innerText = age;
+        td3.innerText = mobile;
 
         tr.appendChild(td1);
         tr.appendChild(td2);

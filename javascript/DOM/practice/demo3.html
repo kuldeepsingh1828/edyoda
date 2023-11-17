@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="username">User Name</label>
+    <input onkeypress="handleChange(event)" type="text" name="username" id="username">
+    <label for="password">User Password</label>
+    <input onkeypress="handleChange(event)" type="password" name="password" id="password">
+    <label for="email">User Email</label>
+    <input onkeypress="handleChange(event)" type="email" name="email" id="email">
+    <button id="login">Login</button>
+</body>
+
+</html>
+<script>
+    let user = {};
+
+    function handleChange(e) {
+        let { name, value } = e.target;
+        user[name] = value;
+        console.log(user);
+    }
+
+</script>
