@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructing demo</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let users = [
+        {
+            id: 1,
+            name: "Nguyen Van A",
+            age: 18,
+            email: "demo1@gmail.com",
+            address: {
+                city: "Ha Noi",
+                district: "Cau Giay",
+                street: "Nguyen Xien"
+            }
+        },
+        {
+            id: 2,
+            name: "Nguyen Van B",
+            age: 19,
+            email: "demo2@gmail.com",
+            address: {
+                city: "Ha Noi",
+                district: "Cau Giay",
+                street: "Nguyen Xien"
+            }
+        },
+        {
+            id: 3,
+            name: "Nguyen Van C",
+            age: 20,
+            email: "demo3@gmail.com",
+            address: {
+                city: "Ha Noi",
+                district: "Cau Giay",
+                street: "Nguyen Xien"
+            }
+        },
+        {
+            id: 4,
+            name: "Nguyen Van D",
+            age: 21,
+            email: "demo4@gmail.com",
+            address: {
+                city: "Ha Noi",
+                district: "Cau Giay",
+                street: "Nguyen Xien"
+            }
+        }
+    ];
+
+    //create a card for each user
+    let cards = users.map((user) => {
+
+        let { id, name, age, email, address } = user;
+        let { city, district, street } = address;
+
+        return `
+        <div class="card">
+            <div class="card-header">
+                <h3>${name}</h3>
+            </div>
+            <div class="card-body">
+                <p>Age: ${age}</p>
+                <p>Email: ${email}</p>
+                <p>Address: ${street}, ${district}, ${city}</p>
+            </div>
+        </div>
+        `;
+    });
+    document.body.innerHTML = cards.join("");
+</script>
