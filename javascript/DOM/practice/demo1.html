@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <p class="p1" id="p1" data-pid='{"name":"Kuldeep","age":25}'>Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit.
+                Ducimus, unde vero voluptatum excepturi
+                nihil
+                possimus earum cum illum aliquid assumenda ab culpa, illo exercitationem ullam dicta libero blanditiis
+                impedit molestiae.</p>
+            <p class="p2" id="p2" data-pid='{"name":"Ram","age":27}'>Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit.
+                Ducimus, unde vero voluptatum excepturi
+                nihil
+                possimus earum cum illum aliquid assumenda ab culpa, illo exercitationem ullam dicta libero blanditiis
+                impedit molestiae.</p>
+            <p class="p3" id="p3" data-pid='{"name":"Sham","age":27}'>Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit.
+                Ducimus, unde vero voluptatum excepturi
+                nihil
+                possimus earum cum illum aliquid assumenda ab culpa, illo exercitationem ullam dicta libero blanditiis
+                impedit molestiae.</p>
+            <p class="p4" id="p4" data-pid='{"name":"Rasham","age":22}'>Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit.
+                Ducimus, unde vero voluptatum excepturi
+                nihil
+                possimus earum cum illum aliquid assumenda ab culpa, illo exercitationem ullam dicta libero blanditiis
+                impedit molestiae.</p>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let paragraphs = document.getElementsByTagName("p");
+    let paragraphsArr = Array.from(paragraphs);
+    paragraphsArr.forEach((p) => {
+        p.addEventListener("click", () => {
+            let user = p.getAttribute("data-pid"); //string
+            user = JSON.parse(user); //object
+            console.log(typeof user)
+            console.log(`User name is ${user.name} and age is ${user.age}`);
+        });
+    });
+</script>
