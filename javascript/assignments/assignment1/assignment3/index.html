@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./productList.js"></script>
+</head>
+
+<body>
+    <section id="clothing">
+        <h2 class="section-heading">Clothing for Men and Women</h2>
+        <div id="clothingCards" class="card-container"></div>
+    </section>
+    <section id="accessories">
+        <h2 class="section-heading">Accessories for Men and Women</h2>
+        <div id="accessoriesCards" class="card-container"></div>
+    </section>
+</body>
+
+</html>
+<script>
+    function generateCard(cardData) {
+        return cardData.map(c => {
+            const {
+                id,
+                name,
+                brand,
+                price,
+                description,
+                preview
+            } = c;
+            return `<div class="card" id="${id}">
+                <a href="product.html?product_id=${id}">
+                    <div class="img">
+                        <img src="${preview}">
+                    </div>
+                    <div class="details">
+                        <h3>${name}</h3>
+                        <h4>${brand}</h4>
+                        <h5>Rs ${price}</h5>
+                    </div>
+                </a>
+            </div>`
+        })
+    }
+
+    let clothesCard = generateCard(clothes)
+    let accessoriesCard = generateCard(accessories);
+
+    document.getElementById('clothingCards').innerHTML = clothesCard.join('');
+    document.getElementById('accessoriesCards').innerHTML = accessoriesCard.join('');
+
+
+</script>
