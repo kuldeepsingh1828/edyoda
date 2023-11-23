@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Sara 1",
+        "photo": "https://images.pexels.com/photos/19154211/pexels-photo-19154211/free-photo-of-a-man-playing-a-bass-at-a-wedding.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "scores": [
+            5,
+            1,
+            4,
+            4,
+            5,
+            1,
+            2,
+            5,
+            4,
+            1
+        ]
+    },
+    {
+        "name": "Sara 2",
+        "photo": "https://images.pexels.com/photos/19154211/pexels-photo-19154211/free-photo-of-a-man-playing-a-bass-at-a-wedding.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "scores": [
+            5,
+            1,
+            4,
+            4,
+            5,
+            1,
+            2,
+            5,
+            4,
+            1
+        ]
+    },
+    {
+        "name": "Sara 3",
+        "photo": "https://images.pexels.com/photos/19154211/pexels-photo-19154211/free-photo-of-a-man-playing-a-bass-at-a-wedding.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "scores": [
+            5,
+            1,
+            4,
+            4,
+            5,
+            1,
+            2,
+            5,
+            4,
+            1
+        ]
+    }
+]

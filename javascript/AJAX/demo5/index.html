@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader and Data Demo using AJAX</title>
+</head>
+
+<body>
+    <div id="loader">Loading...</div>
+    <div id="data"></div>
+</body>
+
+</html>
+<script>
+    let loader = document.getElementById('loader');
+    let dataDiv = document.getElementById('data');
+
+    let xhr = new XMLHttpRequest();
+    let url = 'https://jsonplaceholder.typicode.com/users';
+
+    xhr.onprogress = function () {
+        console.log("ON PROGRESS ", this.readyState);
+        loader.style.display = 'block';
+        console.log("first onprogress");
+    }
+    xhr.onload = function () {
+        console.log("ON LOAD ", this.readyState);
+        if (this.status == 200) {
+            loader.style.display = 'none';
+            let users = JSON.parse(this.responseText);
+            console.log(users)
+
+            let userData = users.map(user => {
+                return `<div>
+                    <h3>${user.name}</h3>
+                    <p>${user.email}</p>
+                    </div>`
+            })
+            dataDiv.innerHTML = userData.join('');
+        }
+    }
+
+    xhr.onerror = function () {
+        console.log("ON ERROR ", this.readyState);
+        loader.style.display = 'none';
+        dataDiv.innerHTML = 'Error Occured';
+    }
+
+    xhr.open('GET', url, true);
+    xhr.send();
+
+</script>

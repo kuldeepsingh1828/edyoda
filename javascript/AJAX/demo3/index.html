@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Bar</title>
+    <style>
+        ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            background-color: #333;
+            color: white;
+            padding: 0;
+        }
+
+        li:hover {
+            background-color: #111;
+            cursor: pointer;
+        }
+
+        #main-content {
+            border: 1px dotted red;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Services</li>
+            <li>Login ME</li>
+        </ul>
+    </nav>
+    <section id="main-content">
+        Please Update me with your content
+    </section>
+</body>
+
+</html>
+<script>
+    let mainContent = document.querySelector('#main-content');
+
+    let navLinks = document.querySelectorAll('li');
+
+    navLinks.forEach((link) => {
+
+        link.addEventListener('click', () => {
+            let page = link.innerHTML;
+
+            let xhr = new XMLHttpRequest();
+
+            xhr.open('GET', `${page.toLowerCase()}.html`, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    mainContent.innerHTML = xhr.responseText;
+                    history.pushState({}, null, `${page.toLowerCase()}.html`);
+                } else {
+                    mainContent.innerHTML = 'Loading...';
+                }
+            }
+            xhr.send();
+        })
+    })
+</script>

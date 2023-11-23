@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Demo</title>
+</head>
+
+<body>
+
+    <h1>AJAX Demo</h1>
+    <button onclick="loadData()">Load Data</button>
+    <div id="result"></div>
+
+    <script>
+        function loadData() {
+            let url = "http://127.0.0.1:5500/AJAX/data.json";
+
+            //Browser has to send a request
+            //1. Create an object of XMLHttpRequest
+            //2. Open a connection
+            //3. Send the request
+            //4. Receive the response
+            //5. Process the response
+
+            let xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                console.log("xhr.readyState", xhr.readyState)
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    //process the response
+                    let data = JSON.parse(xhr.responseText);
+                    console.log(data);
+                    let result = document.getElementById("result");
+                    result.innerHTML = data.message;
+                }
+            }
+
+            xhr.open("GET", url);
+            xhr.send();
+
+
+        }
+    </script>
+
+</body>
+
+</html>

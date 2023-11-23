@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Data from https://jsonplaceholder.typicode.com/comments</title>
+</head>
+
+<body>
+    <h1>You will be getting data from https://jsonplaceholder.typicode.com/comments</h1>
+    <button id="btn">Get Data</button>
+    <div id="data"></div>
+</body>
+<script>
+    const btn = document.getElementById('btn');
+    const data = document.getElementById('data');
+    btn.addEventListener('click', function () {
+        // Create an AJAX Request
+        const xhr = new XMLHttpRequest();
+        // Open the request
+        xhr.open('GET', 'https://jsonplaceholder.typicode.com/comments', true);
+        // What to do on progress (optional)
+        xhr.onreadystatechange = function () {
+            console.log('Ready State is ', xhr.readyState);
+            if (xhr.readyState) {
+                console.log('Loading');
+                data.innerHTML = `<h1>Loading...</h1>`;
+                if (xhr.status == 200) {
+                    console.log('Done');
+                    const comments = JSON.parse(xhr.responseText);
+                    comments.map((comment) => {
+                        data.innerHTML += `<h3>${comment.email} : </h3>
+                        <p>${comment.body}</p>`;
+                    })
+                }
+                console.log(xhr.responseText);
+            }
+        }
+        // Send the request
+        xhr.send();
+    })
+
+</script>
+
+</html>

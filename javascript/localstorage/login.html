@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+
+<body>
+    <form>
+        <label for="username">Enter Username</label>
+        <input type="text" name="username" id="username">
+        <label for="username">Enter Password</label>
+        <input type="password" name="password" id="password">
+        <button type="button" onclick="saveUsernamePasswordToLocal()">Login</button>
+    </form>
+    <section>
+        <h1 id="usernameLocal">Username</h1>
+        <h1 id="passwordLocal">Password</h1>
+    </section>
+</body>
+<script>
+    function saveUsernamePasswordToLocal() {
+        console.log("first")
+        let username = document.getElementById('username').value;
+        let password = document.getElementById('password').value;
+        localStorage.setItem('user', JSON.stringify({ username, password }));
+    }
+    let username = localStorage.getItem('username');
+    let password = localStorage.getItem('password');
+    let user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+    if (username) {
+        document.getElementById('usernameLocal').innerHTML = username;
+    }
+    if (password) {
+        document.getElementById('passwordLocal').innerHTML = password;
+    }
+    if (user) {
+        console.log(user);
+    }
+</script>
+
+</html>
