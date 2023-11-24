@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <style>
+        table {
+            border: 1px solid black;
+            width: 98vw;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>User Management - <span id="page-type"></span></h1>
+    <button id="add-user">Add User</button>
+    <hr />
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <hr style="width: 20px;" />
+    <div id="data">
+    </div>
+</body>
+
+</html>
+<script>
+    let pageType = document.getElementById('page-type');
+    pageType.innerText = 'All Users Details';
+
+    const cb = function (e) {
+        let { id, name, username, email } = e;
+        return `<tr><td>${id}</td><td>${name}</td><td>${username}</td><td>${email}</td><td>edit</td><td>Delete</td></tr>`;
+    }
+    function getAllUsers() {
+        let xhr = new XMLHttpRequest();
+        let url = 'http://localhost:3000/users';
+
+        xhr.open('GET', url, true);
+
+        xhr.onerror = function () {
+            console.log('Request Error...');
+        }
+
+        xhr.onload = function () {
+            if (this.status == 200) {
+                let data = JSON.parse(this.responseText);
+                console.log(data);
+                let tbodyData = data.map(cb);
+                document.querySelector('tbody').innerHTML = tbodyData.join('');
+            }
+        }
+        xhr.send();
+    }
+    getAllUsers();
+
+    let addUserBtn = document.getElementById('add-user');
+    function showAddUser() {
+        let xhr = new XMLHttpRequest();
+        let url = 'adduser.html';
+        xhr.open('GET', url, true);
+
+        xhr.onload = function () {
+            if (this.status == 200) {
+                document.getElementById('data').innerHTML = this.responseText;
+            }
+        }
+        xhr.send();
+    }
+
+    addUserBtn.addEventListener('click', showAddUser);
+
+    function addUserBackend() {
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let username = document.getElementById('username').value;
+
+        let xhr = new XMLHttpRequest();
+        let url = 'http://localhost:3000/users';
+
+        xhr.open('POST', url, true);
+
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.send(JSON.stringify({
+            name,
+            username,
+            email
+        }));
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('username').value = '';
+
+        getAllUsers();
+    }
+</script>
