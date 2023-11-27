@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <section id="product">
+        <div class="left-column">
+            <img id="productImg"
+                src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/2060340/2017/9/14/11505387708574-Puma-Men-Black-Solid-Sporty-Jacket-371505387708496-1.jpg"
+                alt="">
+        </div>
+        <div class="right-column">
+            <div class="product-description">
+                <h1 id="name">Men Black MAMGP T7 Sweat Sporty Jacket</h1>
+                <h4 id="brand">Puma</h4>
+                <h3>Price: Rs <span id="price">7999</span></h3>
+                <div class="description">
+                    <h3>Description</h3>
+                    <p id="description">Black solid sporty jacket, has a mock collar, 3 pockets, zip closure, long
+                        sleeves, straight hem, unlined lining</p>
+                </div>
+                <div class="product-preview">
+                    <h3>Product Preview</h3>
+                    <div class="previewImg">
+                        <img id="img0" class="active"
+                            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/2060340/2017/9/14/11505387708574-Puma-Men-Black-Solid-Sporty-Jacket-371505387708496-1.jpg"
+                            alt="">
+                        <img id="img1"
+                            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/2060340/2017/9/14/11505387708559-Puma-Men-Black-Solid-Sporty-Jacket-371505387708496-2.jpg"
+                            alt="">
+                        <img id="img2"
+                            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/2060340/2017/9/14/11505387708542-Puma-Men-Black-Solid-Sporty-Jacket-371505387708496-3.jpg"
+                            alt="">
+                        <img id="img3" src="undefined" alt="">
+                        <img id="img4" src="undefined" alt="">
+                        <img id="img5" src="undefined" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="btn">
+                <button id="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+<script>
+    //fetch the product id from the query string '?product_id=2' and store produt id in a variable
+    const queryString = window.location.search;
+    const product_id = queryString.split("=")[1];
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "products.json", true);
+    xhr.onload = function () {
+        if (this.status === 200) {
+            const products = JSON.parse(this.responseText);
+            let product = products.find(p => p.id == product_id);
+            if (product) {
+                let { id, name, preview, photos, description, size, isAccessory, brand, price } = product;
+                document.getElementById("name").innerHTML = name;
+                document.getElementById("brand").innerHTML = brand;
+                document.getElementById("price").innerHTML = price;
+                document.getElementById("description").innerHTML = description;
+                document.getElementById("productImg").src = preview;
+                document.getElementById("img0").src = preview;
+                document.getElementById("img1").src = photos[0];
+                document.getElementById("img2").src = photos[1];
+                document.getElementById("img3").src = photos[2];
+                document.getElementById("img4").src = photos[3];
+                document.getElementById("img5").src = photos[4];
+
+                let allImg = document.querySelectorAll("img");
+
+                allImg.forEach(img => {
+                    img.addEventListener("click", function () {
+                        let activeImg = document.querySelector(".active");
+                        activeImg.classList.remove("active");
+                        img.classList.add("active");
+                        document.getElementById("productImg").src = img.src;
+                    })
+                })
+            } else {
+                alert("Product not found");
+            }
+        }
+    }
+    xhr.send();
+</script>
