@@ -7,8 +7,9 @@ router.get('/', function (req, res, next) {
   res.json(users)
 });
 router.post('/', function (req, res, next) {
+  console.log(req.body);
   users.push({ id: users.length + 1, ...req.body });
-  res.json({ message: 'User added successfully' })
+  res.statusCode(500).json({ message: 'User added successfully' })
 });
 
 module.exports = router;
