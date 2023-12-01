@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management 2023 using AJAX</title>
+    <script src="../../jquery-3.7.1.js"></script>
+    <script src="./taskmanagement.js"></script>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .parent {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .child {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TASK MANAGEMENT APP</h1>
+    <hr />
+    <div id="content">
+
+        <div class="parent">
+            <form>
+                <label for="title">Enter Task Title</label>
+                <input type="text" name="title" id="title">
+                <br />
+                <label for="title">Enter Task description</label>
+                <textarea name="description" id="description" cols="20" rows="10"></textarea>
+                <br />
+                <button id="add-task-btn">Add Task</button>
+            </form>
+            <div class="parent task-container">
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
