@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeList Example</title>
+</head>
+
+<body>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <script>
+        // Get a NodeList of all <li> elements
+        const nodeList = document.querySelectorAll('li');
+
+        // NodeList is static, it won't update automatically
+        console.log(nodeList.length); // Output: 3
+
+        // Adding a new <li> element dynamically
+        const newLi = document.createElement('li');
+        newLi.textContent = 'Item 4';
+        document.querySelector('ul').appendChild(newLi);
+
+        // NodeList doesn't automatically update
+        console.log(nodeList.length); // Still outputs: 3
+    </script>
+</body>
+
+</html>
+
