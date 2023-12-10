@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <script src="./musicplayer.js"></script>
+</head>
+
+<body>
+    <input type="text" name="artistName" id="artistName">
+    <button onclick="findArtistData()">Search Artist</button>
+    <input type="text" name="trackName" id="trackName">
+    <button onclick="findTrackData()">Search Track</button>
+    <hr />
+    <div id="artistData">
+        <h2>Artist Data</h2>
+        <div>
+            <img id="artistImage" />
+        </div>
+        <div id="artist-tracks"></div>
+    </div>
+    <hr />
+    <div id="trackData">
+        <h2>Track Data</h2>
+        <div>
+            <img id="trackImage" />
+        </div>
+        <div id="track-artist"></div>
+</body>
+
+</html>

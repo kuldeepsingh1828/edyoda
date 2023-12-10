@@ -157,6 +157,7 @@ function convertNumberToKformat(digit) {
 }
 
 function generateVideoPlayerWrapper(obj) {
+
     var mainDiv = document.createElement("div");
     var videoActionDiv = document.createElement("div");
     var viewsCount = document.createElement("p");
@@ -220,7 +221,7 @@ $(document).ready(function () {
 
         //add click event listener
         mainDiv.addEventListener('click', function () {
-            obj = videoPlaySectionData[obj.id];
+            obj = videoPlaySectionData[obj.id - 1];
             var videoPlayerWrapper = generateVideoPlayerWrapper(obj);
             $('#video-player-wrapper').html(videoPlayerWrapper);
             $('#video-player').attr('src', 'https://player.vimeo.com/video/' + obj.vimeoId);
